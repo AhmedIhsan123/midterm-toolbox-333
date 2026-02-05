@@ -42,7 +42,18 @@ public class Toolbox {
     if (head == null) {
       throw new IllegalArgumentException("Head cannot be null.");
     }
-    return null; 
+    
+    // Create a pointer to traverse the linked list
+    SingleNode curr = head;
+
+    // Traverse the linked list stopping before hitting null
+    while (curr.next != null) {
+      // Move current pointer
+      curr = curr.next;
+    }
+
+    // Current will stop before hitting null, therefore it's the tail
+    return curr; 
   }
 
   /**
