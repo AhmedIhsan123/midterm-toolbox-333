@@ -150,7 +150,27 @@ public class Toolbox {
     if (head == null || n < 0) {
       throw new IllegalArgumentException("Head cannot be null and n cannot be negative.");
     }
-    return null; 
+    // Variable to decrement iterations
+    int count = n;
+
+    // Pointer to traverse the linked list
+    SingleNode curr = head;
+
+    // Traverse while our count != 0 and our current pointer is not null
+    while (curr != null && count != 0) {
+      // Move current pointer
+      curr = curr.next;
+
+      // Decrement counter
+      count--;
+    }
+
+    // Return null or the found element based on if we found it
+    if (count != 0) {
+      return null;
+    } else {
+      return curr;
+    }
   }
 
   /**
