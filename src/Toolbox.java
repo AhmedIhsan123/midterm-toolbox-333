@@ -123,7 +123,19 @@ public class Toolbox {
     if (node == null) {
       throw new IllegalArgumentException("Node cannot be null.");
     }
-    
+    // Link previous node to next node
+    if (node.prev != null) {
+        node.prev.next = node.next;
+    }
+
+    // Link next node to previous node
+    if (node.next != null) {
+        node.next.prev = node.prev;
+    }
+
+    // fully detach node
+    node.prev = null;
+    node.next = null;
   }
 
   /**
