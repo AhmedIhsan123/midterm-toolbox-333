@@ -14,7 +14,21 @@ public class Toolbox {
     if (head == null) {
       throw new IllegalArgumentException("Head cannot be null.");
     }
-    return -1; 
+
+    // Create a node to traverse the linked list
+    SingleNode curr = head;
+    int length = 0;
+
+    while (curr != null) {
+      // Increment length
+      length++;
+
+      // Move pointer to next node
+      curr = curr.next;
+    }
+
+    // Return the accumulated length of the linked list
+    return length; 
   }
 
   /**
