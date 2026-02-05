@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Queue;
 
@@ -92,7 +93,24 @@ public class Toolbox {
     if (head == null) {
       throw new IllegalArgumentException("Head cannot be null.");
     }
-    return null; 
+
+    // Create a pointer to traverse the linked list
+    SingleNode curr = head;
+    
+    // Create a map to track occurrences
+    Map<Integer, Integer> ocurMap = new HashMap<>();
+
+    // Traverse the linked list adding values tot he occurrances map
+    while (curr != null) {
+      // Add to count if already existing, otherwise default to 0
+      ocurMap.put(curr.data, ocurMap.getOrDefault(curr.data, 0) + 1);
+
+      // Traverse current pointer to next
+      curr = curr.next;
+    }
+
+    // Return the populated occurrances map
+    return ocurMap; 
   }
 
   /**
