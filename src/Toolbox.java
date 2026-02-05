@@ -67,7 +67,18 @@ public class Toolbox {
     if (tail == null) {
       throw new IllegalArgumentException("Tail cannot be null.");
     }
-    return null; 
+
+    // Create a pointer to track the current node
+    DoubleNode curr = tail;
+
+    // Traverse the doubly linked list back to the head
+    while (curr.prev != null) {
+      // Move current back
+      curr = curr.prev;
+    }
+
+    // Current will stop at the head, therefore we return it
+    return curr; 
   }
 
   /**
